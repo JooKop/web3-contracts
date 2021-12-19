@@ -2,9 +2,13 @@
 const assert = require('assert');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
+const path = require('path');
+const fs = require('fs');
 const web3 = new Web3(ganache.provider());
-const { interface, bytecode } = require('../compile');
+require('../compile');
 
+const contract = fs.readFileSync(path.resolve(__dirname, '../build/Inbox.json'), "utf8");
+const { abi, evm } = JSON.parse(contract);
 let accounts;
 let inbox;
 const INITIAL_STRING = "Hi there!";
@@ -12,8 +16,8 @@ const INITIAL_STRING = "Hi there!";
 beforeEach(async() => {
     // Get a list of all accounts
     accounts = await web3.eth.getAccounts();
-    inbox = await new web3.eth.Contract(JSON.parse(interface))
-      .deploy({ data: bytecode, arguments: [INITIAL_STRING]})
+    inbox = await new web3.eth.Contract(abi)
+      .deploy({ data: evm.bytecode.object, arguments: [INITIAL_STRING]})
       .send({ from: accounts[0], gas: '1000000' });
 });
 

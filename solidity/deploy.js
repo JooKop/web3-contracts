@@ -2,6 +2,7 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 const { abi, evm } = require('./compile');
+require('dotenv').config({path: __dirname + '/../.env'});
 
 const provider = new HDWalletProvider(
     process.env.MNEMONIC,
