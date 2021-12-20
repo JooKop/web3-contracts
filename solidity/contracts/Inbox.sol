@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: MIT
 
+// Simple smart contract that can set a message and retrieve it.
+
 pragma solidity ^0.8.9;
 
 contract Inbox {

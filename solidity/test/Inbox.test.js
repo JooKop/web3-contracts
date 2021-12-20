@@ -1,14 +1,10 @@
-// contract test code will go here
+require('../compile');
 const assert = require('assert');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
-const path = require('path');
-const fs = require('fs');
 const web3 = new Web3(ganache.provider());
-require('../compile');
+const { abi, evm } = require('./utils/getContract')('Inbox.json')
 
-const contract = fs.readFileSync(path.resolve(__dirname, '../build/Inbox.json'), "utf8");
-const { abi, evm } = JSON.parse(contract);
 let accounts;
 let inbox;
 const INITIAL_STRING = "Hi there!";
