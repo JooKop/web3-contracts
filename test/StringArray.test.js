@@ -3,7 +3,7 @@ const assert = require('assert');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
 const web3 = new Web3(ganache.provider());
-const { abi, evm } = require('./utils/getContract')('StringArray.json')
+const { abi, evm } = require('../utils/getContract')('StringArray.json')
 
 let accounts;
 let stringArray;
@@ -29,7 +29,7 @@ describe('StringArray', () => {
     it('can push multiple message', async() => {
         for (let i = 0; i < 3; i++)
             await stringArray.methods.push(`hello${i}`).send({ from: accounts[0] });
-        const message = await stringArray.methods.myArray().call();
+        const message = await stringArray.methods.getArray().call();
 
         assert.equal(message.length, 3);
         assert.equal(message[1], "hello1");

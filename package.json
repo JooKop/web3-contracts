@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "testc": "node compile.js && mocha",
+    "test": "mocha",
+    "compile": "node compile.js"
   },
   "author": "",
   "license": "ISC",
