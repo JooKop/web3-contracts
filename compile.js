@@ -25,6 +25,7 @@ const compilerInput = {
     },
   };
 
+console.log("Compiling contracts...");
 const compiled = JSON.parse(solc.compile(JSON.stringify(compilerInput)));
 
 fs.ensureDirSync(buildPath);
@@ -38,3 +39,4 @@ fileNames.map((fileName) => {
       );
     });
   });
+console.log("Compiling finished successfully.")
