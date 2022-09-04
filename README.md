@@ -1,4 +1,4 @@
-# web3-contracts
+# Web3 Solidity Contracts
 ## Introduction
 
 This repository contains assorted Smart Contracts written in the https://docs.soliditylang.org/ programming language. The compiled contracts may be deployed to the Ethereum blockchain and interacted with via e.g. a Web3 website.
