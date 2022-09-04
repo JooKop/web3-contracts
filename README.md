@@ -21,14 +21,20 @@ Before starting, you must install all the project dependencies by running:
 
 ### Compiling
 The first step is always compiling our Smart Contracts. Run the following command to compile all the contracts residing in the [contracts](contracts) folder:
-```npm run compile```
+```
+npm run compile
+```
 The resulting `json` files will be created into a new folder named `build`.
 
 ### Testing
-We are using [Mocha](https://mochajs.org/) combined with [Ganache-CLI](https://www.npmjs.com/package/ganache-cli) to test our Smart Contracts. 
-```npm run test```
+We are using [Mocha](https://mochajs.org/) combined with [Ganache-CLI](https://www.npmjs.com/package/ganache-cli) to test our Smart Contracts. To run the tests, run the following command:
+```
+npm run test
+```
 If you're constantly updating your contracts, you may combine compiling and testing together by running:
-```npm run testc```
+```
+npm run testc
+```
 
 ### Deploying
 The contracts in this repository have so far only been deployed to the [Rinkeby](https://www.rinkeby.io/) test network. This is achieved via utilizing the [Infura Ethereum API](https://infura.io/product/ethereum). To deploy any of the Smart Contracts residing in the repository, you must first create a `.env` file into the root of the repository. The file shall define the following variables:
